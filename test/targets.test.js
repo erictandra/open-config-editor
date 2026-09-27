@@ -5,7 +5,7 @@ import { opencode } from '../server/targets/opencode.js';
 import { plan, validateDefault } from '../server/pipeline.js';
 import { parseJsonc } from '../server/jsonc.js';
 import { prettyName } from '../server/names.js';
-import { stateFromConfigs, mergeRouterModels } from '../server/state.js';
+import { stateFromConfigs, mergeRouterModels, addManualModel } from '../server/state.js';
 
 const env = { routerUrl: 'http://127.0.0.1:20128/v1', routerKey: 'new-key' };
 
@@ -150,4 +150,19 @@ test('state run pertama dari config + merge 9Router', () => {
     id: 'geraikita/claude-sonnet-5', name: 'Claude Sonnet 5', alias: 'Claude Sonnet 5',
     image: false, openclaw: false, opencode: false,
   });
+});
+
+test('tambah model manual', () => {
+  const state = { models: [{ id: 'a/b', name: 'B', alias: 'B', image: false, openclaw: true, opencode: false }] };
+  const r1 = addManualModel(state, 'gemini/gemini-2.5-flash-lite');
+  assert.equal(r1.created, true);
+  assert.deepEqual(state.models[0], {
+    id: 'gemini/gemini-2.5-flash-lite', name: 'Gemini 2.5 Flash Lite', alias: 'Gemini 2.5 Flash Lite',
+    image: false, openclaw: false, opencode: false, manual: true,
+  });
+  const r2 = addManualModel(state, 'a/b', 'X');
+  assert.equal(r2.created, false);
+  assert.equal(state.models[1].manual, true);
+  assert.equal(state.models[1].name, 'B', 'baris yang sudah ada tidak diubah');
+  assert.equal(mergeRouterModels(state, ['gemini/gemini-2.5-flash-lite']).length, 0);
 });

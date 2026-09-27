@@ -63,3 +63,16 @@ export function mergeRouterModels(state, routerIds) {
   }
   return added;
 }
+
+// Tambah model yang tidak muncul di /models 9Router (mis. gemini/gemini-2.5-flash-lite).
+// Kalau id sudah ada di tabel, cukup ditandai manual.
+export function addManualModel(state, id, name) {
+  const existing = state.models.find((m) => m.id === id);
+  if (existing) {
+    existing.manual = true;
+    return { row: existing, created: false };
+  }
+  const row = { ...newRow(id, name), manual: true };
+  state.models.unshift(row);
+  return { row, created: true };
+}

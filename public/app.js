@@ -98,13 +98,15 @@ function renderRows() {
     .filter(({ r }) => !onlyActive || r.openclaw || r.opencode)
     .filter(({ r }) => !q || [r.id, r.name, r.alias].some((v) => v?.toLowerCase().includes(q)))
     .map(({ r, i }) => {
-      const missing = r.missing ? '<span class="badge warn">tidak ditemukan di 9Router</span>' : '';
-      const del = r.missing && !r.openclaw && !r.opencode
+      const badge = r.manual
+        ? '<span class="badge info" title="Ditambahkan manual, tidak muncul di daftar /models 9Router">manual</span>'
+        : r.missing ? '<span class="badge warn">tidak ditemukan di 9Router</span>' : '';
+      const del = (r.missing || r.manual) && !r.openclaw && !r.opencode
         ? `<button class="small ghost" data-del="${i}" title="Hapus dari tabel">Hapus</button>` : '';
-      return `<tr class="${r.missing ? 'missing' : ''}">
+      return `<tr class="${r.missing && !r.manual ? 'missing' : ''}">
         <td class="c"><input type="checkbox" data-i="${i}" data-f="opencode" ${r.opencode ? 'checked' : ''}></td>
         <td class="c"><input type="checkbox" data-i="${i}" data-f="openclaw" ${r.openclaw ? 'checked' : ''}></td>
-        <td class="id">${esc(r.id)}${missing}</td>
+        <td class="id">${esc(r.id)}${badge}</td>
         <td><input type="text" data-i="${i}" data-f="name" value="${esc(r.name)}"></td>
         <td><input type="text" data-i="${i}" data-f="alias" value="${esc(r.alias)}"></td>
         <td class="c"><input type="checkbox" data-i="${i}" data-f="image" ${r.image ? 'checked' : ''}></td>
@@ -141,13 +143,34 @@ for (const app of APPS) {
     renderDefaults();
   });
 }
+$('#add-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const id = $('#add-id').value.trim();
+  const name = $('#add-name').value.trim();
+  try {
+    const { row, created } = await api('/api/models/add', { id, name });
+    if (created) {
+      rows.unshift({ ...row, missing: true });
+    } else {
+      // Sudah ada: tandai manual, perubahan lain di tabel yang belum di-generate tetap dipertahankan
+      rows.find((r) => r.id === row.id).manual = true;
+      alert(`${row.id} sudah ada di tabel, ditandai sebagai manual.`);
+    }
+    $('#add-id').value = '';
+    $('#add-name').value = '';
+    renderRows();
+    renderDefaults();
+  } catch (err) {
+    alert(err.message);
+  }
+});
 $('#filter').addEventListener('input', renderRows);
 $('#only-active').addEventListener('change', renderRows);
 $('#reload').addEventListener('click', load);
 
 function payload() {
   return {
-    models: rows.map(({ id, name, alias, image, openclaw, opencode }) => ({ id, name, alias, image, openclaw, opencode })),
+    models: rows.map(({ id, name, alias, image, openclaw, opencode, manual }) => ({ id, name, alias, image, openclaw, opencode, manual })),
     defaults,
   };
 }

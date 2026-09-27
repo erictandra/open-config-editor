@@ -5,7 +5,7 @@ import { loadEnv } from './env.js';
 import { fetchRouterModels } from './router9.js';
 import { openclaw } from './targets/openclaw.js';
 import { opencode } from './targets/opencode.js';
-import { APPS, loadState, saveState, stateFromConfigs, mergeRouterModels } from './state.js';
+import { APPS, loadState, saveState, stateFromConfigs, mergeRouterModels, addManualModel } from './state.js';
 import { plan, readConfig, generateTarget, syncProviderOnLoad, rollback, validateDefault } from './pipeline.js';
 import { parseJsonc } from './jsonc.js';
 
@@ -43,6 +43,7 @@ function sanitizeRows(input) {
       image: !!r.image,
       openclaw: !!r.openclaw,
       opencode: !!r.opencode,
+      ...(r.manual ? { manual: true } : {}),
     };
   });
 }
@@ -182,6 +183,20 @@ app.post('/api/rollback', (req, res) =>
     const t = TARGETS[req.body?.app];
     if (!t) throw new Error('app tidak dikenal');
     return rollback(t.target, env, t.file, t.command, String(req.body.backup || ''));
+  }),
+);
+
+// Tambah model manual (ID yang tidak muncul di daftar 9Router)
+app.post('/api/models/add', (req, res) =>
+  exclusive(res, async () => {
+    const id = String(req.body?.id ?? '').trim().replace(/^9router\//, '');
+    if (!/^[\w.:@-]+(\/[\w.:@-]+)*$/.test(id)) throw new Error('ID model tidak valid (contoh: gemini/gemini-2.5-flash-lite)');
+    const state = await loadState(env.dataFile);
+    if (!state) throw new Error('Muat halaman dulu sebelum menambah model');
+    const name = String(req.body?.name ?? '').trim() || undefined;
+    const result = addManualModel(state, id, name);
+    await saveState(env.dataFile, state);
+    return result;
   }),
 );
 
