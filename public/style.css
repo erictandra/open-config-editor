@@ -1,0 +1,105 @@
+:root {
+  --bg: #f7f7f8;
+  --panel: #ffffff;
+  --text: #1c1d21;
+  --muted: #6b6e76;
+  --border: #e2e3e7;
+  --accent: #2f6fed;
+  --ok: #1f8a4c;
+  --warn: #b7791f;
+  --err: #c53030;
+  --row-hover: #f1f4fb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141518;
+    --panel: #1c1e22;
+    --text: #e6e7ea;
+    --muted: #9095a0;
+    --border: #2d3036;
+    --accent: #6b9bff;
+    --ok: #4ec27f;
+    --warn: #e0a846;
+    --err: #f07171;
+    --row-hover: #23262c;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; border-bottom: 1px solid var(--border); background: var(--panel);
+}
+h1 { font-size: 17px; margin: 0; }
+main { padding: 16px 20px 40px; max-width: 1200px; margin: 0 auto; }
+.muted { color: var(--muted); font-weight: normal; }
+
+button {
+  font: inherit; padding: 7px 14px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--panel); color: var(--text);
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.ghost { background: transparent; }
+button.small { padding: 2px 8px; font-size: 12px; }
+button:disabled { opacity: .5; cursor: default; }
+
+input[type=text], input[type=search], select {
+  font: inherit; padding: 6px 8px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--panel); color: var(--text); width: 100%;
+}
+input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.status { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.chip {
+  padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--panel); font-size: 13px;
+}
+.chip b { margin-right: 4px; }
+.ok { color: var(--ok); }
+.warn { color: var(--warn); }
+.err { color: var(--err); }
+
+.defaults { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.defaults label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.defaults select.invalid { border-color: var(--err); }
+
+.toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.toolbar input[type=search] { max-width: 280px; }
+.toolbar #generate { margin-left: auto; }
+label.inline { display: inline-flex; align-items: center; gap: 6px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); position: sticky; top: 0; background: var(--panel); }
+td.c, th:nth-child(1), th:nth-child(2), th:nth-child(6) { text-align: center; width: 1%; white-space: nowrap; }
+tbody tr:hover { background: var(--row-hover); }
+tbody tr.missing td.id { color: var(--muted); }
+td.id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; white-space: nowrap; }
+.badge {
+  display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px;
+  font: 11px system-ui, sans-serif; border: 1px solid currentColor;
+}
+
+#results { margin-top: 16px; display: grid; gap: 10px; }
+.result { border: 1px solid var(--border); border-radius: 8px; padding: 12px; background: var(--panel); }
+.result pre { white-space: pre-wrap; font-size: 12px; background: var(--bg); padding: 8px; border-radius: 6px; max-height: 200px; overflow: auto; }
+
+dialog { border: 1px solid var(--border); border-radius: 10px; background: var(--panel); color: var(--text); max-width: 560px; width: calc(100% - 32px); }
+dialog::backdrop { background: rgb(0 0 0 / .4); }
+dialog h2 { font-size: 16px; margin: 0 0 10px; }
+dialog h3 { font-size: 14px; margin: 12px 0 4px; }
+dialog ul { margin: 4px 0; padding-left: 20px; }
+dialog menu { display: flex; justify-content: flex-end; gap: 8px; padding: 0; margin: 16px 0 0; }
+
+@media (max-width: 700px) {
+  main, header { padding-left: 16px; padding-right: 16px; }
+  .defaults { grid-template-columns: 1fr; }
+  .toolbar #generate { margin-left: 0; width: 100%; }
+}

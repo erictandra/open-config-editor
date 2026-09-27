@@ -1,0 +1,21 @@
+{
+  "name": "open-config-generator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "9Router model config manager for OpenClaw & opencode",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "jsonc-parser": "^3.3.1"
+  }
+}

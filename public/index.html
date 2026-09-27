@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>9Router Config Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>9Router Config Manager</h1>
+    <button id="reload" class="ghost">Muat ulang</button>
+  </header>
+
+  <main>
+    <section id="status" class="status"></section>
+
+    <section class="defaults">
+      <label>Default model — OpenClaw
+        <select id="default-openclaw"></select>
+      </label>
+      <label>Default model — opencode
+        <select id="default-opencode"></select>
+      </label>
+    </section>
+
+    <section class="toolbar">
+      <input id="filter" type="search" placeholder="Cari model…">
+      <label class="inline"><input id="only-active" type="checkbox"> Hanya yang aktif</label>
+      <span id="counts" class="muted"></span>
+      <button id="generate" class="primary">Generate Config</button>
+    </section>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th title="Aktif di opencode">opencode</th>
+            <th title="Aktif di OpenClaw">OpenClaw</th>
+            <th>Model ID</th>
+            <th>Nama</th>
+            <th>Alias <span class="muted">(OpenClaw)</span></th>
+            <th title="Dukungan input gambar">Gambar</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <section id="results"></section>
+  </main>
+
+  <dialog id="confirm">
+    <form method="dialog">
+      <h2>Konfirmasi perubahan</h2>
+      <div id="confirm-body"></div>
+      <menu>
+        <button value="cancel" class="ghost">Batal</button>
+        <button value="ok" id="confirm-ok" class="primary">Tulis & restart</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
