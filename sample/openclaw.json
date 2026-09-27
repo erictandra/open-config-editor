@@ -1,0 +1,246 @@
+{
+  "wizard": {
+    "securityAcknowledgedAt": "2026-09-15T13:12:55.806Z",
+    "accessMode": "guarded",
+    "lastRunAt": "2026-09-15T14:02:58.678Z",
+    "lastRunVersion": "2026.9.4",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "telemetry": {
+    "enabled": false,
+    "consentedAt": "2026-09-15T13:13:02.427Z"
+  },
+  "plugins": {
+    "entries": {
+      "anthropic": {
+        "config": {
+          "sessionCatalog": {
+            "enabled": false
+          }
+        }
+      },
+      "codex": {
+        "config": {
+          "sessionCatalog": {
+            "enabled": false
+          }
+        }
+      },
+      "openai": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  },
+  "meta": {
+    "migrations": {
+      "modelPolicyAllowlist": true
+    },
+    "lastTouchedVersion": "2026.9.4"
+  },
+  "agents": {
+    "defaults": {
+      "authInheritance": {
+        "agentId": "main"
+      },
+      "workspace": "/home/asus/.openclaw/workspace",
+      "models": {
+        "openai/gpt-5.6-sol": { "alias": "GPT" },
+        "9router/low-model": { "alias": "Low" },
+        "9router/high-model": { "alias": "High" },
+        "9router/premium-model": { "alias": "Premium" },
+        "9router/free-model": { "alias": "Free" },
+        "9router/geraikita/claude-opus-5": { "alias": "Opus5" },
+        "9router/geraikita/claude-opus-4-8": { "alias": "Opus4.8" },
+        "9router/geraikita/claude-opus-4-6": { "alias": "Opus4.6" },
+        "9router/geraikita/claude-opus-4-7": { "alias": "Opus4.7" },
+        "9router/geraikita/claude-sonnet-5": { "alias": "Sonnet5" },
+        "9router/geraikita/claude-sonnet-4-6": { "alias": "Sonnet4.6" },
+        "9router/geraikita/claude-haiku-4-5": { "alias": "Haiku4.5" },
+        "9router/geraikita/claude-fable-5": { "alias": "Fable5" },
+        "9router/geraikita/deepseek-v4-pro": { "alias": "DeepSeekPro" },
+        "9router/geraikita/deepseek-v4.1-flash": { "alias": "DeepSeek4.1Flash" },
+        "9router/geraikita/deepseek-v4-flash": { "alias": "DeepSeekFlash" },
+        "9router/geraikita/claude-opus-5-thinking": { "alias": "Opus5Thinking" },
+        "9router/geraikita/claude-sonnet-5-thinking": { "alias": "Sonnet5Thinking" },
+        "9router/geraikita/glm-5.1": { "alias": "GLM5.1" },
+        "9router/geraikita/glm-5-turbo": { "alias": "GLM5Turbo" },
+        "9router/geraikita/glm-5.3": { "alias": "GLM5.3" },
+        "9router/geraikita/glm-5.2": { "alias": "GLM5.2" },
+        "9router/geraikita/gpt-5.4": { "alias": "GPT5.4" },
+        "9router/geraikita/gpt-5.5": { "alias": "GPT5.5" },
+        "9router/geraikita/gpt-5.5-xhigh": { "alias": "GPT5.5XHigh" },
+        "9router/geraikita/gpt-5.6-luna": { "alias": "GPT5.6Luna" },
+        "9router/geraikita/gpt-5.6-sol": { "alias": "GPT5.6Sol" },
+        "9router/geraikita/gpt-5.6-terra": { "alias": "GPT5.6Terra" },
+        "9router/geraikita/qwen-max": { "alias": "QwenMax" },
+        "9router/geraikita/qwen-plus": { "alias": "QwenPlus" },
+        "9router/geraikita/qwen-flash": { "alias": "QwenFlash" },
+        "9router/geraikita/qwen-coder-plus": { "alias": "QwenCoderPlus" },
+        "9router/geraikita/kimi-k2.7-code": { "alias": "KimiK2.7Code" },
+        "9router/geraikita/kimi-k3": { "alias": "KimiK3" },
+        "9router/geraikita/claude-opus-5-token": { "alias": "Opus5Token" },
+        "9router/geraikita/claude-sonnet-5-token": { "alias": "Sonnet5Token" },
+        "9router/geraikita/claude-opus-4-8-token": { "alias": "Opus4.8Token" },
+        "9router/geraikita/claude-sonnet-4-6-token": { "alias": "Sonnet4.6Token" },
+        "9router/geraikita/claude-opus-4-7-token": { "alias": "Opus4.7Token" },
+        "9router/geraikita/claude-opus-4-6-token": { "alias": "Opus4.6Token" },
+        "9router/geraikita/claude-fable-5-token": { "alias": "Fable5Token" },
+        "9router/geraikita/claude-fable-5.1-token": { "alias": "Fable5.1Token" },
+        "9router/geraikita/gpt-6-astra-token": { "alias": "GPT6AstraToken" },
+        "9router/geraikita/gpt-5.6-sol-token": { "alias": "GPT5.6SolToken" },
+        "9router/geraikita/gpt-5.6-terra-token": { "alias": "GPT5.6TerraToken" },
+        "9router/geraikita/gpt-5.6-luna-token": { "alias": "GPT5.6LunaToken" },
+        "9router/geraikita/deepseek-v4-pro-token": { "alias": "DeepSeekProToken" },
+        "9router/geraikita/deepseek-v4-pro-0813-token": { "alias": "DeepSeekPro0813Token" },
+        "9router/geraikita/deepseek-v4.1-flash-token": { "alias": "DeepSeek4.1FlashToken" },
+        "9router/geraikita/deepseek-v4-flash-token": { "alias": "DeepSeekFlashToken" },
+        "9router/geraikita/deepseek-v4-flash-0731-token": { "alias": "DeepSeekFlash0731Token" },
+        "9router/gemini/gemini-2.5-flash-lite": { "alias": "Gemini 2.5 Flash Lite" },
+      },
+      "model": {
+        "primary": "9router/low-model"
+      },
+      "heartbeat": { "every": "0m" }
+    },
+    "entries": {
+      "inorin": {
+        "name": "inorin",
+        "workspace": "/home/asus/.openclaw/workspace",
+        "agentDir": "/home/asus/.openclaw/agents/inorin/agent",
+        "identity": {
+          "name": "inorin"
+        }
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "9router": {
+        "baseUrl": "http://127.0.0.1:20128/v1",
+        "apiKey": "sk-XXXXXXXXXXXXXXXXXXX",
+        "api": "openai-completions",
+        "models": [
+          { "id": "low-model", "name": "Low Model (Combo)" },
+          { "id": "high-model", "name": "High Model (Combo)" },
+          { "id": "premium-model", "name": "Premium Model (Combo)" },
+          { "id": "free-model", "name": "Free Model (Combo)" },
+          { "id": "geraikita/claude-opus-5", "name": "Claude Opus 5 (GeraiKita)" },
+          { "id": "geraikita/claude-opus-4-8", "name": "Claude Opus 4.8 (GeraiKita)" },
+          { "id": "geraikita/claude-opus-4-6", "name": "Claude Opus 4.6 (GeraiKita)" },
+          { "id": "geraikita/claude-opus-4-7", "name": "Claude Opus 4.7 (GeraiKita)" },
+          { "id": "geraikita/claude-sonnet-5", "name": "Claude Sonnet 5 (GeraiKita)" },
+          { "id": "geraikita/claude-sonnet-4-6", "name": "Claude Sonnet 4.6 (GeraiKita)" },
+          { "id": "geraikita/claude-haiku-4-5", "name": "Claude Haiku 4.5 (GeraiKita)" },
+          { "id": "geraikita/claude-fable-5", "name": "Claude Fable 5 (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4-pro", "name": "DeepSeek V4 Pro (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4.1-flash", "name": "DeepSeek V4.1 Flash (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4-flash", "name": "DeepSeek V4 Flash (GeraiKita)" },
+          { "id": "geraikita/claude-opus-5-thinking", "name": "Claude Opus 5 Thinking (GeraiKita)" },
+          { "id": "geraikita/claude-sonnet-5-thinking", "name": "Claude Sonnet 5 Thinking (GeraiKita)" },
+          { "id": "geraikita/glm-5.1", "name": "GLM 5.1 (GeraiKita)" },
+          { "id": "geraikita/glm-5-turbo", "name": "GLM 5 Turbo (GeraiKita)" },
+          { "id": "geraikita/glm-5.3", "name": "GLM 5.3 (GeraiKita)" },
+          { "id": "geraikita/glm-5.2", "name": "GLM 5.2 (GeraiKita)" },
+          { "id": "geraikita/gpt-5.4", "name": "GPT 5.4 (GeraiKita)" },
+          { "id": "geraikita/gpt-5.5", "name": "GPT 5.5 (GeraiKita)" },
+          { "id": "geraikita/gpt-5.5-xhigh", "name": "GPT 5.5 XHigh (GeraiKita)" },
+          { "id": "geraikita/gpt-5.6-luna", "name": "GPT 5.6 Luna (GeraiKita)" },
+          { "id": "geraikita/gpt-5.6-sol", "name": "GPT 5.6 Sol (GeraiKita)" },
+          { "id": "geraikita/gpt-5.6-terra", "name": "GPT 5.6 Terra (GeraiKita)" },
+          { "id": "geraikita/qwen-max", "name": "Qwen Max (GeraiKita)" },
+          { "id": "geraikita/qwen-plus", "name": "Qwen Plus (GeraiKita)" },
+          { "id": "geraikita/qwen-flash", "name": "Qwen Flash (GeraiKita)" },
+          { "id": "geraikita/qwen-coder-plus", "name": "Qwen Coder Plus (GeraiKita)" },
+          { "id": "geraikita/kimi-k2.7-code", "name": "Kimi K2.7 Code (GeraiKita)" },
+          { "id": "geraikita/kimi-k3", "name": "Kimi K3 (GeraiKita)" },
+          { "id": "geraikita/claude-opus-5-token", "name": "Claude Opus 5 Token (GeraiKita)" },
+          { "id": "geraikita/claude-sonnet-5-token", "name": "Claude Sonnet 5 Token (GeraiKita)" },
+          { "id": "geraikita/claude-opus-4-8-token", "name": "Claude Opus 4.8 Token (GeraiKita)" },
+          { "id": "geraikita/claude-sonnet-4-6-token", "name": "Claude Sonnet 4.6 Token (GeraiKita)" },
+          { "id": "geraikita/claude-opus-4-7-token", "name": "Claude Opus 4.7 Token (GeraiKita)" },
+          { "id": "geraikita/claude-opus-4-6-token", "name": "Claude Opus 4.6 Token (GeraiKita)" },
+          { "id": "geraikita/claude-fable-5-token", "name": "Claude Fable 5 Token (GeraiKita)" },
+          { "id": "geraikita/claude-fable-5.1-token", "name": "Claude Fable 5.1 Token (GeraiKita)" },
+          { "id": "geraikita/gpt-6-astra-token", "name": "GPT 6 Astra Token (GeraiKita)" },
+          { "id": "geraikita/gpt-5.6-sol-token", "name": "GPT 5.6 Sol Token (GeraiKita)" },
+          { "id": "geraikita/gpt-5.6-terra-token", "name": "GPT 5.6 Terra Token (GeraiKita)" },
+          { "id": "geraikita/gpt-5.6-luna-token", "name": "GPT 5.6 Luna Token (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4-pro-token", "name": "DeepSeek V4 Pro Token (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4-pro-0813-token", "name": "DeepSeek V4 Pro 0813 Token (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4.1-flash-token", "name": "DeepSeek V4.1 Flash Token (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4-flash-token", "name": "DeepSeek V4 Flash Token (GeraiKita)" },
+          { "id": "geraikita/deepseek-v4-flash-0731-token", "name": "DeepSeek V4 Flash 0731 Token (GeraiKita)" },
+          { "id": "gemini/gemini-2.5-flash-lite", "name": "Gemini 2.5 Flash Lite", "input": ["text", "image"] }
+
+        ]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "password",
+      "password": "xxxxx"
+    },
+    "port": 18789,
+    "bind": "lan",
+    "trustedProxies": [
+      "127.0.0.1",
+      "::1"
+    ],
+    "tailscale": {
+      "mode": "off"
+    },
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789",
+	"https://openclaw.ericode.my.id"
+      ]
+    }
+  },
+  "tools": {
+    "profile": "coding"
+  },
+  "auth": {
+    "profiles": {
+      "openai:api-key": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "groups": {
+        "*": {
+          "requireMention": false
+        }
+      },
+      "botToken": "BOT_TOKEN",
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "5927339770"
+      ]
+    }
+  },
+  "hooks": {
+    "internal": {
+      "entries": {
+        "session-memory": {
+          "enabled": false
+        }
+      }
+    }
+  },
+  "memory": {
+    "search": {
+      "provider": "none"
+    }
+  }
+}

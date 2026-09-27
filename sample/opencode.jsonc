@@ -1,0 +1,72 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "disabled_providers": [],
+  "provider": {
+    "9router": {
+      "name": "9 Router",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:20128/v1",
+        "apiKey": "sk-xxxxxxxxxxxxx"
+      },
+      "models": {
+        "low-model": { "name": "Low Model (Combo)" },
+        "high-model": { "name": "High Model (Combo)" },
+        "premium-model": { "name": "Premium Model (Combo)" },
+        "free-model": { "name": "Free Model (Combo)" },
+        "geraikita/claude-opus-5": { "name": "Claude Opus 5 (GK)" },
+        "geraikita/claude-opus-4-8": { "name": "Claude Opus 4.8 (GK)" },
+        "geraikita/claude-opus-4-6": { "name": "Claude Opus 4.6 (GK)" },
+        "geraikita/claude-opus-4-7": { "name": "Claude Opus 4.7 (GK)" },
+        "geraikita/claude-sonnet-5": { "name": "Claude Sonnet 5 (GK)" },
+        "geraikita/claude-sonnet-4-6": { "name": "Claude Sonnet 4.6 (GK)" },
+        "geraikita/claude-haiku-4-5": { "name": "Claude Haiku 4.5 (GK)" },
+        "geraikita/claude-fable-5": { "name": "Claude Fable 5 (GK)" },
+        "geraikita/deepseek-v4-pro": { "name": "DeepSeek V4 Pro (GK)" },
+        "geraikita/deepseek-v4.1-flash": { "name": "DeepSeek V4.1 Flash (GK)" },
+        "geraikita/deepseek-v4-flash": { "name": "DeepSeek V4 Flash (GK)" },
+        "geraikita/claude-opus-5-thinking": { "name": "Claude Opus 5 Thinking (GK)" },
+        "geraikita/claude-sonnet-5-thinking": { "name": "Claude Sonnet 5 Thinking (GK)" },
+        "geraikita/glm-5.1": { "name": "GLM 5.1 (GK)" },
+        "geraikita/glm-5-turbo": { "name": "GLM 5 Turbo (GK)" },
+        "geraikita/glm-5.3": { "name": "GLM 5.3 (GK)" },
+        "geraikita/glm-5.2": { "name": "GLM 5.2 (GK)" },
+        "geraikita/gpt-5.4": { "name": "GPT 5.4 (GK)" },
+        "geraikita/gpt-5.5": { "name": "GPT 5.5 (GK)" },
+        "geraikita/gpt-5.5-xhigh": { "name": "GPT 5.5 xHigh (GK)" },
+        "geraikita/gpt-5.6-luna": { "name": "GPT 5.6 Luna (GK)" },
+        "geraikita/gpt-5.6-sol": { "name": "GPT 5.6 Sol (GK)" },
+        "geraikita/gpt-5.6-terra": { "name": "GPT 5.6 Terra (GK)" },
+        "geraikita/qwen-max": { "name": "Qwen Max (GK)" },
+        "geraikita/qwen-plus": { "name": "Qwen Plus (GK)" },
+        "geraikita/qwen-flash": { "name": "Qwen Flash (GK)" },
+        "geraikita/qwen-coder-plus": { "name": "Qwen Coder Plus (GK)" },
+        "geraikita/kimi-k2.7-code": { "name": "Kimi K2.7 Code (GK)" },
+        "geraikita/kimi-k3": { "name": "Kimi K3 (GK)" },
+        "geraikita/claude-opus-5-token": { "name": "Claude Opus 5 Token (GK)" },
+        "geraikita/claude-sonnet-5-token": { "name": "Claude Sonnet 5 Token (GK)" },
+        "geraikita/claude-opus-4-8-token": { "name": "Claude Opus 4.8 Token (GK)" },
+        "geraikita/claude-sonnet-4-6-token": { "name": "Claude Sonnet 4.6 Token (GK)" },
+        "geraikita/claude-opus-4-7-token": { "name": "Claude Opus 4.7 Token (GK)" },
+        "geraikita/claude-opus-4-6-token": { "name": "Claude Opus 4.6 Token (GK)" },
+        "geraikita/claude-fable-5-token": { "name": "Claude Fable 5 Token (GK)" },
+        "geraikita/claude-fable-5.1-token": { "name": "Claude Fable 5.1 Token (GK)" },
+        "geraikita/gpt-6-astra-token": { "name": "GPT 6 Astra Token (GK)" },
+        "geraikita/gpt-5.6-sol-token": { "name": "GPT 5.6 Sol Token (GK)" },
+        "geraikita/gpt-5.6-terra-token": { "name": "GPT 5.6 Terra Token (GK)" },
+        "geraikita/gpt-5.6-luna-token": { "name": "GPT 5.6 Luna Token (GK)" },
+        "geraikita/deepseek-v4-pro-token": { "name": "DeepSeek V4 Pro Token (GK)" },
+        "geraikita/deepseek-v4-pro-0813-token": { "name": "DeepSeek V4 Pro 0813 Token (GK)" },
+        "geraikita/deepseek-v4.1-flash-token": { "name": "DeepSeek V4.1 Flash Token (GK)" },
+        "geraikita/deepseek-v4-flash-token": { "name": "DeepSeek V4 Flash Token (GK)" },
+        "geraikita/deepseek-v4-flash-0731-token": { "name": "DeepSeek V4 Flash 0731 Token (GK)" },
+        "gemini/gemini-2.5-flash-lite": { "name": "Gemini 2.5 Flash Lite",
+        "attachment": true,
+  "modalities": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  }}
+      }
+    }
+  }
+}
